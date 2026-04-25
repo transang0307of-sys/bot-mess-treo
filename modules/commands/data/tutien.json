@@ -1,0 +1,110 @@
+{
+  "61573370773875": {
+    "exp": 701,
+    "coin": 757,
+    "lastTrain": 1776913885371,
+    "lastPK": 1776913920444,
+    "lastDaily": 0,
+    "lastBoss": {},
+    "weapon": "w1",
+    "armor": "a1",
+    "inventory": {
+      "weapons": [
+        "w1"
+      ],
+      "armors": [
+        "a1"
+      ],
+      "pills": {}
+    },
+    "skills": [],
+    "questProgress": {
+      "_day": "2026-3-23",
+      "q1": 7,
+      "q2": 7,
+      "claimed_q1": true,
+      "q3": 1,
+      "q4": 1
+    },
+    "pkWins": 1,
+    "pkLoss": 0,
+    "trainCount": 7,
+    "breakCount": 0,
+    "totalBreakSuccess": 0,
+    "bossKills": 0,
+    "streakTrain": 1,
+    "lastTrainDay": "2026-3-23",
+    "title": "Người Xây Nền Móng",
+    "gifted": false
+  },
+  "61567389593152": {
+    "exp": 336,
+    "coin": 678,
+    "lastTrain": 1777002938359,
+    "lastPK": 0,
+    "lastDaily": 0,
+    "lastBoss": {},
+    "weapon": "w1",
+    "armor": "a1",
+    "inventory": {
+      "weapons": [
+        "w1"
+      ],
+      "armors": [
+        "a1"
+      ],
+      "pills": {}
+    },
+    "skills": [],
+    "questProgress": {
+      "_day": "2026-3-24",
+      "q1": 3,
+      "q2": 3
+    },
+    "pkWins": 0,
+    "pkLoss": 1,
+    "trainCount": 7,
+    "breakCount": 0,
+    "totalBreakSuccess": 0,
+    "bossKills": 0,
+    "streakTrain": 2,
+    "lastTrainDay": "2026-3-24",
+    "title": "Tiểu Tu Sĩ Chân Ướt",
+    "gifted": false
+  },
+  "61586439794257": {
+    "exp": 80,
+    "coin": 550,
+    "lastTrain": 1777001909567,
+    "lastPK": 0,
+    "lastDaily": 0,
+    "lastBoss": {},
+    "weapon": "w1",
+    "armor": "a1",
+    "inventory": {
+      "weapons": [
+        "w1"
+      ],
+      "armors": [
+        "a1"
+      ],
+      "pills": {}
+    },
+    "skills": [],
+    "questProgress": {
+      "_day": "2026-3-24",
+      "q1": 2,
+      "q2": 2
+    },
+    "pkWins": 0,
+    "pkLoss": 0,
+    "trainCount": 2,
+    "breakCount": 0,
+    "totalBreakSuccess": 0,
+    "bossKills": 0,
+    "streakTrain": 1,
+    "lastTrainDay": "2026-3-24",
+    "title": "Tên Phàm Phu Tục Tử",
+    "gifted": false
+  }
+}
