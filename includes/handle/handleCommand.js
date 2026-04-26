@@ -41,12 +41,7 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
       return api.sendMessage('NDH mới có thể sử dụng bot', threadID, messageID);
     }
 
-    const dataAdbox = require('../../modules/commands/cache/data.json');
-    var threadInf = (threadInfo.get(threadID) || await Threads.getInfo(threadID));
-    const findd = threadInf.adminIDs.find(el => el.id == senderID);
-    if (dataAdbox.adminbox.hasOwnProperty(threadID) && dataAdbox.adminbox[threadID] == true && !ADMINBOT.includes(senderID) && !findd && event.isGroup == true && !NDH.includes(senderID) && !findd && event.isGroup == true) {
-      return api.sendMessage('Quản trị viên mới sử dụng được!!', event.threadID, event.messageID);
-    }
+    // ❌ ĐÃ XÓA ADMINBOX TẠI ĐÂY
 
     if (userBanned.has(senderID) || threadBanned.has(threadID) || allowInbox == ![] && senderID == threadID) {
       if (!ADMINBOT.includes(senderID.toString()) && !NDH.includes(senderID.toString())) {
@@ -101,6 +96,7 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
           }, messageID);
       }
     }
+
     if (command.config.commandCategory.toLowerCase() == 'nsfw' && !global.data.threadAllowNSFW.includes(threadID) && !ADMINBOT.includes(senderID))
       return api.sendMessage(global.getText("handleCommand", "threadNotAllowNSFW"), threadID, async (err, info) => {
         await new Promise(resolve => setTimeout(resolve, 5 * 1000))
@@ -122,6 +118,7 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
     if (ADMINBOT.includes(senderID.toString())) permssion = 3;
     else if (NDH.includes(senderID.toString())) permssion = 2;
     else if (!ADMINBOT.includes(senderID) && find) permssion = 1;
+
     var quyenhan = ""
     if (command.config.hasPermssion == 1 ){
       quyenhan = "Quản Trị Viên"
@@ -130,11 +127,14 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
     } else if(command.config.hasPermssion == 3) {
       quyenhan = "ADMIN"
     }
-    if (command.config.hasPermssion > permssion) return api.sendMessage(`Quyền hạn của lệnh: ${command.config.name} là ${quyenhan}`, event.threadID, event.messageID);
+
+    if (command.config.hasPermssion > permssion) 
+      return api.sendMessage(`Quyền hạn của lệnh: ${command.config.name} là ${quyenhan}`, event.threadID, event.messageID);
 
     if (!client.cooldowns.has(command.config.name)) client.cooldowns.set(command.config.name, new Map());
     const timestamps = client.cooldowns.get(command.config.name);
     const expirationTime = (command.config.cooldowns || 1) * 1000;
+
     if (timestamps.has(senderID) && dateNow < timestamps.get(senderID) + expirationTime)
       return api.sendMessage(`⏱ Bạn đang trong thời gian chờ!\n Vui lòng thử lại sau ${((timestamps.get(senderID) + expirationTime - dateNow)/1000).toString().slice(0, 5)}s nữa nhé!!!`, threadID, messageID);
 
@@ -161,12 +161,16 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
       Obj.Currencies = Currencies;
       Obj.permssion = permssion;
       Obj.getText = getText2;
+
       usages = JSON.parse(fs.readFileSync(usgPath));
       fs.writeFileSync(usgPath, JSON.stringify(usages, null, 4));
+
       command.run(Obj);
       timestamps.set(senderID, dateNow);
+
       if (DeveloperMode == !![])
         logger(global.getText("handleCommand", "executeCommand", time, commandName, senderID, threadID, args.join(" "), (Date.now()) - dateNow), "MODE");
+
       return;
     } catch (e) {
       return api.sendMessage(global.getText("handleCommand", "commandError", commandName, e), threadID);
